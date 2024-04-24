@@ -6,8 +6,6 @@ const { UserInterest } = require('./userInterestModel');
 const { Interest } = require('./interestModel');
 const { Session } = require('./sessionModel');
 const { Friend } = require('./friendModel');
-const { Report } = require('./reportModel');
-const { Message } = require('./messageModel');
 
 User.hasMany(Post, { foreignKey: 'userId' }); // Un utilisateur peut avoir plusieurs posts
 Post.belongsTo(User, { foreignKey: 'userId' }); // Un post appartient à un utilisateur
@@ -30,12 +28,6 @@ UserInterest.belongsTo(Interest, { foreignKey: 'centerOfInterestId', as: 'center
 
 Post.belongsTo(Interest, { foreignKey: 'interestId' });
 
-Report.belongsTo(User, {foreignKey: 'reporterId',as: 'reporter',});
-Report.belongsTo(User, {foreignKey: 'reportedUserId',as: 'reportedUser',});
-Report.belongsTo(Post, {foreignKey: 'reportedPostId',as: 'reportedPost',});
 
 Friend.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 Friend.belongsTo(User, { foreignKey: 'friend_id', as: 'friend' });
-
-Message.belongsTo(User, {foreignKey: 'senderId',as: 'sender',});
-Message.belongsTo(User, {foreignKey: 'receiverId',as: 'receiver',});
