@@ -4,11 +4,7 @@ const sessionMiddleware = require('./src/middlewares/sessionMiddleware.js');
 const { sequelize } = require('./src/helpers/connectionDB.js');
 const userRouter = require('./src/routes/userRouter');
 const postRouter = require('./src/routes/postRouter');
-const searchRouter = require('./src/routes/searchRouter');
 const friendRouter = require('./src/routes/friendRouter');
-const interestRouter = require('./src/routes/interestRouter');
-const reportRouter = require('./src/routes/reportRouter');
-const messageRouter = require('./src/routes/messageRouter');
 const emailRouter = require('./src/routes/emailRouter');
 const cors = require('cors');
 require('./src/models/associations.js');
@@ -45,11 +41,7 @@ const checkSession = (req, res, next) => {
 app.get('/checkSession', checkSession, (req, res) => { res.json({ user_id: req.session.user_id });});
 app.use('/user', userRouter);
 app.use('/post', postRouter);
-app.use('/search', searchRouter);
 app.use('/friend', friendRouter);
-app.use('/interest', interestRouter);
-app.use('/report', reportRouter);
-app.use('/message', messageRouter);
 app.use('/email', emailRouter);
 
 // Connection au server //
