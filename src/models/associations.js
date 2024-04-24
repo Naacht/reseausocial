@@ -2,7 +2,6 @@ const { Post } = require('./postModel');
 const { Like } = require('./likeModel');
 const { User } = require('./userModel');
 const { Comment } = require('./commentModel');
-const { UserInterest } = require('./userInterestModel');
 const { Interest } = require('./interestModel');
 const { Session } = require('./sessionModel');
 const { Friend } = require('./friendModel');
@@ -22,9 +21,6 @@ Like.belongsTo(User, { foreignKey: 'userId' }); // Un like appartient à un util
 Like.belongsTo(Post, { foreignKey: 'postId' }); // Un like est lié à un post
 
 Post.hasMany(Like, { foreignKey: 'postId' });
-
-User.hasMany(UserInterest, { foreignKey: 'userId', as: 'selectedInterests' });
-UserInterest.belongsTo(Interest, { foreignKey: 'centerOfInterestId', as: 'centerOfInterest' });
 
 Post.belongsTo(Interest, { foreignKey: 'interestId' });
 
