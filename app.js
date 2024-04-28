@@ -9,6 +9,7 @@ const emailRouter = require('./src/routes/emailRouter');
 const cors = require('cors');
 require('./src/models/associations.js');
 require('./src/models/seedInterests.js');
+require('./src/models/seedUsers.js');
 
 app.use(sessionMiddleware);
 app.use(express.json());
