@@ -2,7 +2,7 @@ const transporter = require('../EmailController/transporter'); // Importer la co
 
 const sendEmail = (userEmail, verificationCode) => {
     const mailOptions = {
-        from: 'reseausocialCCF@gmail.com',
+        from: 'SIO2_SLAM@enc-bessieres.org',
         to: userEmail,
         subject: 'Code de vérification',
         text: `Votre inscription sur notre réseau social a été prise en compte !
